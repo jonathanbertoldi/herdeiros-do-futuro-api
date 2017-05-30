@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hdf-api:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="tully-api.war">
+      <element id="artifact" artifact-name="hdf-api:war exploded" />
+    </root>
+  </artifact>
+</component>
