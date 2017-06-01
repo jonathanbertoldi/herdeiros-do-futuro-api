@@ -25,4 +25,10 @@ public class EventoRepository implements IEventoRepository{
     public List<Evento> buscarTodos() {
         return manager.createQuery("SELECT e FROM Evento e", Evento.class).getResultList();
     }
+
+    @Override
+    public void remover(long eventoId) {
+        Evento evento = manager.find(Evento.class, eventoId);
+        manager.remove(evento);
+    }
 }

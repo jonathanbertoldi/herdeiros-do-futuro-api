@@ -1,23 +1,18 @@
 package br.com.herdeirosdofuturo.controller;
 
-import br.com.herdeirosdofuturo.dto.EventoDTO;
 import br.com.herdeirosdofuturo.dto.ItemDTO;
-import br.com.herdeirosdofuturo.model.Evento;
 import br.com.herdeirosdofuturo.model.Item;
-import br.com.herdeirosdofuturo.repository.ItemRepository;
 import br.com.herdeirosdofuturo.repository.contracts.IItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/itens")
 public class ItemController {

@@ -1,11 +1,13 @@
 package br.com.herdeirosdofuturo.infra;
 
+import com.sun.org.apache.xpath.internal.operations.Mult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,16 +22,15 @@ public class FileSaver {
         try {
             String realPath = request.getServletContext().getRealPath("/" + baseFolder);
 
-            if (! new File(realPath).exists()){
+            if (! new File(realPath).exists()) {
                 new File(realPath).mkdir();
             }
 
-            byte[] bytes = file.getBytes();
-            Path finalPath = Paths.get(realPath, file.getOriginalFilename());
-            Files.write(finalPath, bytes);
+            String path = realPath + "/" + file.getOriginalFilename();
+            file.transferTo(new File(path));
 
-            return finalPath.toUri().toString();
-        } catch (Exception e) {
+            return baseFolder + "/" + file.getOriginalFilename();
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
