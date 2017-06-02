@@ -9,5 +9,5 @@ public interface IItemRepository {
 
     void salvar(Item item);
     List<Item> buscarTodos();
-    void deletar(Item item);
+    void remover(long itemId);
 }

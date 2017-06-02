@@ -29,8 +29,8 @@ public class ItemRepository implements IItemRepository {
     }
 
     @Override
-    public void deletar(Item item) {
+    public void remover(long itemId) {
+        Item item = manager.find(Item.class, itemId);
         manager.remove(item);
-
     }
 }

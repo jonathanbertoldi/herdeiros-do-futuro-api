@@ -16,8 +16,8 @@ public class UploadController {
 
     private static final String PASTA = "imagens";
 
-    @RequestMapping(value = "/teste", method = RequestMethod.POST)
-    public ResponseEntity<String> teste(@RequestParam("file") MultipartFile file) {
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) {
         String path = fileSaver.write(PASTA, file);
         return ResponseEntity.ok(path);
     }
